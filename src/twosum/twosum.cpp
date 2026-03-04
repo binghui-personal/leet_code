@@ -1,8 +1,9 @@
 #include "twosum.h"
 #include <unordered_map>
+using namespace two_sum;
 
-vector<int> Solution::twoSum(const vector<int>& nums, int target) {
-    unordered_map<int, int> seen; // value -> index
+std::vector<int> Solution::twoSum(const std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> seen; // value -> index
     for (int i = 0; i < (int)nums.size(); ++i) {
         int complement = target - nums[i];
         auto it = seen.find(complement);

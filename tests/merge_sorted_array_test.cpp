@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "merge_sorted_array/merge_sorted_array.h"
+#include "gtest/gtest.h"
 #include <vector>
 
 using namespace merge_sorted_array;
