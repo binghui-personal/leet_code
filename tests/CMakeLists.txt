@@ -24,5 +24,4 @@ add_custom_command(TARGET leet_code_tests POST_BUILD
     $<TARGET_FILE_DIR:leet_code_tests>
 )
 
-enable_testing()
 add_test(NAME leet_code_tests COMMAND leet_code_tests)
