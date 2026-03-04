@@ -11,10 +11,8 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-add_executable(leet_code_tests
-  twosum_test.cpp
-  merge_sorted_array_test.cpp
-)
+file(GLOB TEST_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+add_executable(leet_code_tests ${TEST_SOURCES})
 
 target_link_libraries(leet_code_tests PRIVATE gtest_main leet_code)
 
