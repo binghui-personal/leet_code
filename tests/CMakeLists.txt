@@ -5,7 +5,8 @@ set(gtest_force_shared_crt ON CACHE BOOL "Use shared CRT for gtest" FORCE)
 
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/refs/heads/main.zip
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG        v1.15.2
 )
 
 FetchContent_MakeAvailable(googletest)
@@ -18,7 +19,7 @@ add_executable(leet_code_tests
 target_link_libraries(leet_code_tests PRIVATE gtest_main leet_code)
 
 add_custom_command(TARGET leet_code_tests POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+  COMMAND ${CMAKE_COMMAND} -E copy
     $<TARGET_FILE:leet_code>
     $<TARGET_FILE_DIR:leet_code_tests>
 )
