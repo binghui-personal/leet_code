@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "mindrally-cpp": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "computedHash": "4bfa14d6472f0b2b1025921b247aa6636a4fd9ce8c5792f3a0aec0a6e459ae46"
+    }
+  }
+}
