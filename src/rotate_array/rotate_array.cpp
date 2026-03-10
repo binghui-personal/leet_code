@@ -1,7 +1,7 @@
 #include "rotate_array.h"
 using namespace rotate_array;
 
-void Solution::rotate_brute_force(std::vector<int>& nums, int k) {
+void Solution::rotateBruteForce(std::vector<int>& nums, int k) {
   int n = nums.size();
   if (n == 0) {
     return;
@@ -22,7 +22,7 @@ void Solution::rotate_brute_force(std::vector<int>& nums, int k) {
   }
 }
 
-void Solution::rotate_triple_reverse(std::vector<int>& nums, int k) {
+void Solution::rotateTripleReverse(std::vector<int>& nums, int k) {
   auto reverse = [](std::vector<int>& nums, int start, int end) {
     while (start < end) {
       std::swap(nums[start], nums[end]);
