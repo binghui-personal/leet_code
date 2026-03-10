@@ -6,7 +6,7 @@ void Solution::rotateBruteForce(std::vector<int>& nums, int k) {
   if (n == 0) {
     return;
   }
-  int move = int(k % n);
+  int move = int((k % n + n ) % n);
   if (move == 0) {
     return;
   }
@@ -35,7 +35,7 @@ void Solution::rotateTripleReverse(std::vector<int>& nums, int k) {
   if (n == 0) {
     return;
   }
-  int move = int(k % n);
+  int move = int((k % n + n) % n);
   if (move == 0) {
     return;
   }
