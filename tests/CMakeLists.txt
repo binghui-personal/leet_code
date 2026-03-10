@@ -23,3 +23,8 @@ add_custom_command(TARGET leet_code_tests POST_BUILD
 )
 
 add_test(NAME leet_code_tests COMMAND leet_code_tests)
+
+set_target_properties(leet_code_tests PROPERTIES
+  RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
+

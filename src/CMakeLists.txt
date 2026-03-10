@@ -11,3 +11,8 @@ target_include_directories(leet_code PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_
 if (MSVC)
   target_compile_definitions(leet_code PRIVATE LEET_CODE_EXPORTS)
 endif()
+
+set_target_properties(leet_code PROPERTIES
+  RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
+
