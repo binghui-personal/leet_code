@@ -11,15 +11,13 @@ void Solution::rotateBruteForce(std::vector<int>& nums, int k) {
     return;
   }
 
-  std::vector<int> queue;
+  std::vector<int> tail(nums.begin() + n - move, nums.end());
+
   for (int i = 0; i < move; i++) {
-    int back = nums.back();
     nums.pop_back();
-    queue.push_back(back);
   }
-  for (int i = 0; i < move; i++) {
-    nums.insert(nums.begin(), queue[i]);
-  }
+
+  nums.insert(nums.begin(), tail.begin(), tail.end());
 }
 
 void Solution::rotateTripleReverse(std::vector<int>& nums, int k) {
