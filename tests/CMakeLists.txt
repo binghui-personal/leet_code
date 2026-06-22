@@ -1,30 +1,28 @@
-include(FetchContent)
+find_package(GTest REQUIRED)
 
-# Ensure googletest uses the same MSVC runtime as the tests (dynamic CRT)
-set(gtest_force_shared_crt ON CACHE BOOL "Use shared CRT for gtest" FORCE)
-
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        v1.15.2
+file(GLOB_RECURSE SOURCES
+    ../src/*.cpp
+    ../src/*.h
 )
 
-FetchContent_MakeAvailable(googletest)
-
-file(GLOB TEST_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
-add_executable(leet_code_tests ${TEST_SOURCES})
-
-target_link_libraries(leet_code_tests PRIVATE gtest_main leet_code)
-
-add_custom_command(TARGET leet_code_tests POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy
-    $<TARGET_FILE:leet_code>
-    $<TARGET_FILE_DIR:leet_code_tests>
+file (GLOB_RECURSE TEST_SOURCES
+  *.cpp
 )
 
-add_test(NAME leet_code_tests COMMAND leet_code_tests)
+add_executable(leet_code_tests
+  ${TEST_SOURCES}
+  ${SOURCES}
+)
 
-set_target_properties(leet_code_tests PROPERTIES
-  RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+target_include_directories(leet_code_tests
+  PRIVATE
+  ../src
+  ../src/include
+)
+
+target_link_libraries(leet_code_tests
+  PRIVATE
+  GTest::gtest
+  GTest::gtest_main
 )
 
